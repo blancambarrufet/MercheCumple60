@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabButtons = Array.from(document.querySelectorAll('[data-tab]'));
   const sections = Array.from(document.querySelectorAll('[data-tab-content]'));
 
+  function scrollToTop() {
+    const scroller = document.scrollingElement || document.documentElement;
+    scroller.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    requestAnimationFrame(() => scroller.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+  }
+
   function showTab(name) {
     sections.forEach(s => {
       const isActive = s.id === name;
@@ -12,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
     });
     tabButtons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
-    // Always scroll to top when switching tabs
-    window.scrollTo(0, 0);
+    // Always scroll to top when switching tabs (after layout update)
+    scrollToTop();
   }
 
   tabButtons.forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
@@ -25,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initial = location.hash?.replace('#', '') || 'evento';
   showTab(initial === 'donacion' ? 'donacion' : 'evento');
   // Ensure page starts at the very top (some browsers auto-scroll to hash)
-  window.scrollTo(0, 0);
+  scrollToTop();
 
   // Simple modal helpers
   const modal = document.getElementById('modal');
