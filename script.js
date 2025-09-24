@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const initial = location.hash?.replace('#', '') || 'evento';
   showTab(initial === 'donacion' ? 'donacion' : 'evento');
+  // Ensure page starts at the very top (some browsers auto-scroll to hash)
+  window.scrollTo(0, 0);
 
   // Simple modal helpers
   const modal = document.getElementById('modal');

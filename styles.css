@@ -2,7 +2,7 @@
   --bg: #fff;
   --text: #2a2a2a;
   --muted: #666;
-  --primary: #89b4f8; 
+  --primary: #a2bad6; 
   --primary-contrast: #fff;
   --surface: #f7f7f7;
   --border: #e5e5e5;
@@ -19,6 +19,8 @@ body {
   background: var(--bg);
   line-height: 1.5;
 }
+
+main { background: #f1e1c7; }
 
 .container {
   max-width: 820px;
@@ -73,12 +75,11 @@ nav {
 
 main section {
   padding: 24px;
+  /* Prevent sticky header from covering anchor-scrolled content */
+  scroll-margin-top: 72px;
 }
 
-.hero {
-  background: linear-gradient(180deg, #fff, var(--surface));
-  border-bottom: 1px solid var(--border);
-}
+.hero { background: transparent; border-bottom: 1px solid var(--border); }
 
 /* Decorative faded image at top of Evento */
 .hero-mark {
@@ -122,6 +123,8 @@ h2 { margin: 24px 0 8px; }
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
+  font: inherit;
+  appearance: none;
   transition: background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
   text-align: center;
 }
