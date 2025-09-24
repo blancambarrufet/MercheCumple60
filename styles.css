@@ -1,0 +1,228 @@
+:root {
+  --bg: #fff;
+  --text: #2a2a2a;
+  --muted: #666;
+  --primary: #89b4f8; 
+  --primary-contrast: #fff;
+  --surface: #f7f7f7;
+  --border: #e5e5e5;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tab-btn[aria-selected="true"] {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: var(--primary);
+}
+
+.tab-btn:hover { filter: brightness(0.98); }
+
+main section {
+  padding: 24px;
+}
+
+.hero {
+  background: linear-gradient(180deg, #fff, var(--surface));
+  border-bottom: 1px solid var(--border);
+}
+
+/* Decorative faded image at top of Evento */
+.hero-mark {
+  display: block;
+  margin: 20px auto 16px;
+  max-width: 560px;
+  width: 90%;
+  opacity: 0.7;
+}
+
+h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+}
+
+/* Center only the main heading of Evento */
+#evento h1 { text-align: center; }
+
+h2 { margin: 24px 0 8px; }
+
+.lead { color: var(--muted); margin-bottom: 16px; }
+
+.info-list { margin: 16px 0; padding-left: 18px; }
+
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Variant for sections with two actions (evento) */
+.callouts.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+  text-align: center;
+}
+
+.btn:hover { background: #e9f1ff; }
+
+.btn.primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: var(--primary);
+}
+
+.btn.primary:hover { filter: brightness(1.05); }
+
+.note {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.hidden { display: none; }
+
+.allergy-form {
+  margin: 8px 0 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.allergy-form label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.allergy-form input,
+.allergy-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font: inherit;
+}
+
+.btn.full { display: block; width: 100%; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  z-index: 50;
+}
+.modal.open { display: flex; }
+.modal .modal-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  max-width: 420px;
+  width: calc(100% - 32px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+.modal .modal-actions { margin-top: 12px; text-align: right; flex-shrink: 0; }
+/* Make modal content scrollable on small screens */
+.modal #modal-body { flex: 1 1 auto; overflow: auto; }
+
+.donation-logo {
+  display: block;
+  max-width: 160px;
+  width: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
+.donation-header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.donation-heading h1 { margin-bottom: 4px; }
+
+@media (max-width: 640px) {
+  .callouts, .callouts.two { grid-template-columns: 1fr; }
+  .donation-header { grid-template-columns: 1fr; text-align: center; }
+  .donation-logo { margin: 0 auto; max-width: 140px; }
+}
+
+/* Modal list improvements */
+.modal .lead ul { margin: 10px 0; padding-left: 18px; }
+.modal .lead li { margin: 6px 0; }

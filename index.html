@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiesta de cumple — Merche</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="container" role="navigation">
+        <a class="logo" href="#">Merche Peralta</a>
+        <div class="tabs" role="tablist" aria-label="Secciones">
+          <button class="tab-btn" role="tab" aria-selected="true" data-tab="evento">Evento</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="donacion">Donación</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="evento" data-tab-content class="hero">
+        <div class="container card">
+          <h1>¡¡¡Ya tenemos noticias de mi fiesta de cumple!!!</h1>
+          <img src="Assets/logo.png" alt="Marca decorativa Merche" class="hero-mark" />
+          <p class="lead">Fecha: <strong>Sábado 8 de noviembre</strong></p>
+          <ul class="info-list">
+            <li><strong>Hora</strong>: 20:00 a 01:00 (después seguiremos en otro sitio)</li>
+            <li><strong>Ubicación</strong>: Masia Can Ametller — Sala: El Ametller</li>
+          </ul>
+
+          <h3>Dress code</h3>
+          <p>Ven muy guap@ y con ganas de divertirte.</p>
+
+          <p>¡Qué ganas de verte, qué ilusión estar contigo!</p>
+          
+
+          <div class="callouts two">
+            <a class="btn primary" href="https://maps.app.goo.gl/xqVJHA23PrjzFvcS6" target="_blank" rel="noopener">Abrir en Google Maps</a>
+            <button class="btn" data-open-tab="donacion">Mi regalo</button>
+          </div>
+
+          <p class="lead">¿Tienes alguna alergia alimentaria o similar que deba comunicar al restaurante?</p>
+
+          <form id="allergy-form" class="allergy-form" action="#" method="get"
+                data-emailjs-public-key="mlEJmX6KMWHrmw2qu"
+                data-emailjs-service-id="service_t23xpon"
+                data-emailjs-template-id="template_wasrfpa">
+            <label for="allergy-name">Tu nombre</label>
+            <input id="allergy-name" name="name" type="text" placeholder="Nombre y apellidos" required />
+
+            <label for="allergy-details">Alergias/intolerancias</label>
+            <textarea id="allergy-details" name="details" rows="3" placeholder="Cuéntame alergias, intolerancias o peticiones especiales" required></textarea>
+
+            <button type="submit" class="btn primary full">Enviar por email</button>
+            <p id="allergy-status" class="note" aria-live="polite"></p>
+          </form>
+
+        </div>
+      </section>
+
+      <section id="donacion" class="hidden" data-tab-content>
+        <div class="container card">
+
+          <div class="donation-header">
+            <img src="https://diocesanaterrassa.caritas.es/main-files/uploads/sites/26/2019/07/logo_blanco.jpg" alt="Cáritas Diocesana de Terrassa" class="donation-logo" />
+            <div class="donation-heading">
+              <h1>Donaciones</h1>
+              <p>No os preocupéis por el regalo, mi regalo es disfrutar con vosotros.</p>
+            </div>
+          </div>
+
+          <p class="lead">Si queréis, podéis hacer una aportación a través de:</p>
+          <ul class="info-list">
+            <li><strong>Web</strong>: <a href="https://diocesanaterrassa.caritas.es/" target="_blank" rel="noopener">diocesanaterrassa.caritas.es</a></li>
+            <li><strong>Transferencia bancaria</strong>: ES92 2100 5000 5002 0007 6012</li>
+            <li><strong>Bizum</strong>: 33432</li>
+            <li><strong>Indicar</strong>: La aportación ha sido para el cumpleaños de Merche Peralta</li>
+          </ul>
+
+          <div class="callouts">
+            <button class="btn" data-open-tab="evento">Volver al evento</button>
+            <a class="btn primary" href="https://diocesanaterrassa.caritas.es/" target="_blank" rel="noopener">Más información</a>
+            <button class="btn" id="btn-certificado" type="button">Certificado fiscal</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Merche — ¡Será perfecto celebrarlo así!</p>
+      </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-card">
+        <h3 id="modal-title">Mensaje</h3>
+        <div id="modal-body" class="lead"></div>
+        <div class="modal-actions">
+          <button id="modal-close" class="btn primary">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
