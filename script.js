@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
     });
     tabButtons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
+    // Always scroll to top when switching tabs
+    window.scrollTo(0, 0);
   }
 
   tabButtons.forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
